@@ -18,27 +18,20 @@ execute_with_prompt() {
     fi
 }
 
-# Function to switch user and execute commands
-switch_user() {
-    local user=$1
-    shift
-    sudo -u "$user" bash -c "$*"
-}
-
 # Function to deploy GUI chrome remote desktop
 remote_desktop() {
   # Install the dependencies
-  execute_with_prompt "sudo wget https://dl.google.com/linux/direct/chrome-remote-desktop_current_amd64.deb"
-  execute_with_prompt "sudo apt update && sudo apt upgrade -y"
-  execute_with_prompt "sudo dpkg --install chrome-remote-desktop_current_amd64.deb -y"
-  execute_with_prompt "sudo apt install --assume-yes --fix-broken"
-  execute_with_prompt "sudo DEBIAN_FRONTEND=noninteractive apt install --assume-yes xfce4 desktop-base"
+  sudo -i -u crd bash -c "sudo wget -O /home/crd/google-crd.deb https://dl.google.com/linux/direct/chrome-remote-desktop_current_amd64.deb"
+  sudo -i -u crd bash -c "sudo apt update && sudo apt upgrade -y"
+  sudo -i -u crd bash -c "sudo dpkg --install /home/crd/google-crd.deb"
+  sudo -i -u crd bash -c "sudo apt install --assume-yes --fix-broken"
+  sudo -i -u crd bash -c "sudo DEBIAN_FRONTEND=noninteractive apt install --assume-yes xfce4 desktop-base"
   sudo bash -c "echo 'exec /etc/X11/Xsession /usr/bin/xfce4-session' > /etc/chrome-remote-desktop-session"
-  execute_with_prompt "sudo apt install --assume-yes xscreensaver"
-  execute_with_prompt "sudo systemctl disable lightdm.service"
-  execute_with_prompt "sudo wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb"
-  execute_with_prompt "sudo dpkg --install google-chrome-stable_current_amd64.deb"
-  execute_with_prompt "sudo apt install --assume-yes --fix-broken"
+  sudo -i -u crd bash -c "sudo apt install --assume-yes xscreensaver"
+  sudo -i -u crd bash -c "sudo systemctl disable lightdm.service"
+  sudo -i -u crd bash -c "sudo wget -O /home/crd/google-chrome-web.deb https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb"
+  sudo -i -u crd bash -c "sudo dpkg --install /home/crd/google-chrome-web.deb"
+  sudo -i -u crd bash -c "sudo apt install --assume-yes --fix-broken"
 }
 
 # Starting message
@@ -46,15 +39,14 @@ echo -e "${BOLD}${UNDERLINE}Starting the script...${RESET}"
 sleep 5
 
 # Check if the script is running as root
-if [ "$UID" -eq 0 ]; then
-    echo "Script running as root."
+if groups $USER | grep &>/dev/null '\bsudo\b'; then
+    echo "Root user detected."
     sleep 5
-    execute_with_prompt "sudo adduser crd"
-    execute_with_prompt "sudo usermod -aG sudo crd"
-    switch_user crd "cd && $(declare -f remote_desktop); remote_desktop"
-else
-    echo "Script running as user."
-    sleep 5
-    execute_with_prompt "cd"
+    execute_with_prompt "adduser crd"
+    execute_with_prompt "usermod -aG sudo crd"
     remote_desktop
+    execute_with_prompt "su - crd"
+else
+    echo "User is not root. move to root with this command: su root"
+    exit 1
 fi
