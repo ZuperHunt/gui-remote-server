@@ -18,6 +18,13 @@ execute_with_prompt() {
     fi
 }
 
+# Function to switch user and execute commands
+switch_user() {
+    local user=$1
+    shift
+    sudo -u "$user" bash -c "$*"
+}
+
 # Function to deploy GUI chrome remote desktop
 remote_desktop() {
   # Install the dependencies
@@ -44,9 +51,7 @@ if [ "$UID" -eq 0 ]; then
     sleep 5
     execute_with_prompt "sudo adduser crd"
     execute_with_prompt "sudo usermod -aG sudo crd"
-    execute_with_prompt "sudo su - crd"
-    execute_with_prompt "cd"
-    remote_desktop
+    switch_user crd "cd && $(declare -f remote_desktop); remote_desktop"
 else
     echo "Script running as user."
     sleep 5
