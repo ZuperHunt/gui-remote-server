@@ -36,12 +36,12 @@ remote_desktop() {
 
 # Starting message
 echo -e "${BOLD}${UNDERLINE}Starting the script...${RESET}"
-wait 5
+sleep 5
 
 # Check if the script is running as root
 if [ "$UID" -eq 0 ]; then
     echo "Script running as root."
-    wait 5
+    sleep 5
     execute_with_prompt "sudo adduser crd"
     execute_with_prompt "sudo usermod -aG sudo crd"
     execute_with_prompt "sudo su - crd"
@@ -49,7 +49,7 @@ if [ "$UID" -eq 0 ]; then
     remote_desktop
 else
     echo "Script running as user."
-    wait 5
+    sleep 5
     execute_with_prompt "cd"
     remote_desktop
 fi
