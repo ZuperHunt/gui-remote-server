@@ -39,7 +39,7 @@ echo -e "${BOLD}${UNDERLINE}Starting the script...${RESET}"
 sleep 5
 
 # Check if the script is running as root
-if groups $USER | grep &>/dev/null '\bsudo\b'; then
+if sudo -v &>/dev/null; then
     echo "Root user detected."
     sleep 5
     execute_with_prompt "adduser crd"
