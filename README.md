@@ -1,50 +1,43 @@
-Penulis: [nama_penulis](link_twt)
+Penulis: [0xraia](https://x.com/0xraia)
 
-# Pengenalan
-Bab ini berisi pengenalan mengenai nama_project
-
-## Nama_Project
+## GUI Remote Desktop Server
 > [!NOTE]
-> berikan_description_singkat_mengenai_project_tersebut
+> Script for deploying a GUI remote desktop server with chrome remote desktop on Linux machine server.
 
-### Investor
-taroh_img_investor_jika_ada
+# Tutorial
 
-# Tutorial XXX
-Bab ini berisi tutorial cara menjalankan XXX
-
-## Requirement
-Syarat menjalankan XXX
-- Spek Komputer
-  
-| Name | Minimum |
-| ------------- | ------------- |
-| Operating System  | OS_NAME  |
-| CPU  | X Cores  |
-| RAM  | X GB  |
-| SSD  | XX GB  |
-- item_2_dan_seterusnya_jika_ada
-
-> [!TIP]
-> Kami menggunakan Digital Ocean dengan speksifikasi `XX/ X Core/ X GB RAM/ XX GB SSD`. Jika kamu membutuhkan VPS, kami memiliki link gratis credit VPS DigitalOcean sebesar $200. Cukup untuk menjalankan XXX selama XX . Daftar sekarang dengan [link utama](link_reff_do_kamu) / [link cadangan](link_reff_do_2_kamu) untuk mendapatkannya.
-  
-## Dependencies
-
-### Install X 
+### Move to root directory
 ```
-sudo apt-get install xxxx
+su root
 ```
 
-## Menjalankan XXX
+### Download and run the script
+```
+wget https://raw.githubusercontent.com/ZuperHunt/gui-remote-server/main/script.sh && chmod +x script.sh && ./script.sh
+```
 
-### Run XXX
-```
-code blocks for commands
-```
+### Fill with your password (SAVE IT)
+![alt text](Image/Screenshot 2024-09-16 231350.png)
+
+### Fill with your information, input Y and press enter to continue
+![alt text](Image/Screenshot 2024-09-16 231504.png)
+
+### Fill in the password you previously filled in (and will same for the next step)
+![alt text](Image/Screenshot 2024-09-17 030843.png)
+
+### Go to https://remotedesktop.google.com/headless, press begin -> next -> authorize -> copy the command in the debian linux section and paste it in the terminal
+![alt text](Image/Screenshot 2024-09-17 031748.png)
+
+### Fill in the password you previously filled in
+![alt text](Image/Screenshot 2024-09-17 032506.png)
+
+### Go back to https://remotedesktop.google.com/ and you will see your server, press the server -> fill in the password you previously filled in -> press continue, and voila you have a GUI remote desktop server
+![alt text](Image/Screenshot 2024-09-17 032615.png)
+![alt text](Image/Screenshot 2024-09-17 032644.png)
 
 ## Help
 
-Join komunitas [Discord ZuperHunt](https://t.co/n7TeWVlA48) jika kamu ada pertanyaan.
+Join komunitas [Discord ZuperHunt](https://t.co/zuperhunt) jika kamu ada pertanyaan.
 
 ## Change Logs
 
@@ -54,4 +47,5 @@ Join komunitas [Discord ZuperHunt](https://t.co/n7TeWVlA48) jika kamu ada pertan
 ## Acknowledgments
 
 Referensi
-* [nama_referensi](link_referensi)
+* [Gitpod-based “Virtual Private Server” Guidebook](https://luthfi0x.notion.site/Gitpod-based-Virtual-Private-Server-Guidebook-a82c45e276ea436986959e83d26b32f8)
+* [Setup Chrome Remote Desktop for Digital Ocean $5 Droplet](https://medium.com/@shiba.komino/setup-chrome-remote-desktop-for-digital-ocean-5-droplet-5a02bc3a2f55)
