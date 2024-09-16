@@ -20,20 +20,20 @@ wget https://raw.githubusercontent.com/ZuperHunt/gui-remote-server/main/script.s
 ![alt text](Image/Screenshot 2024-09-16 231350.png)
 
 ### Fill with your information, input Y and press enter to continue
-![alt text](Image/Screenshot 2024-09-16 231504.png)
+![alt text](https://raw.githubusercontent.com/ZuperHunt/gui-remote-server/main/Image/Screenshot%202024-09-16%20231350.png)
 
 ### Fill in the password you previously filled in (and will same for the next step)
-![alt text](Image/Screenshot 2024-09-17 030843.png)
+![alt text](https://raw.githubusercontent.com/ZuperHunt/gui-remote-server/main/Image/Screenshot%202024-09-16%20231504.png)
 
 ### Go to https://remotedesktop.google.com/headless, press begin -> next -> authorize -> copy the command in the debian linux section and paste it in the terminal
-![alt text](Image/Screenshot 2024-09-17 031748.png)
+![alt text](https://raw.githubusercontent.com/ZuperHunt/gui-remote-server/main/Image/Screenshot%202024-09-17%20030843.png)
 
 ### Fill in the password you previously filled in
-![alt text](Image/Screenshot 2024-09-17 032506.png)
+![alt text](https://raw.githubusercontent.com/ZuperHunt/gui-remote-server/main/Image/Screenshot%202024-09-17%20031748.png)
 
 ### Go back to https://remotedesktop.google.com/ and you will see your server, press the server -> fill in the password you previously filled in -> press continue, and voila you have a GUI remote desktop server
-![alt text](Image/Screenshot 2024-09-17 032615.png)
-![alt text](Image/Screenshot 2024-09-17 032644.png)
+![alt text](https://raw.githubusercontent.com/ZuperHunt/gui-remote-server/main/Image/Screenshot%202024-09-17%20032615.png)
+![alt text](https://raw.githubusercontent.com/ZuperHunt/gui-remote-server/main/Image/Screenshot%202024-09-17%20032644.png)
 
 ## Help
 
